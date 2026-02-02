@@ -19,10 +19,14 @@ public class TryDivisionCatch {
                 System.out.print("Type in a number: ");
                 numberOne = myScanner.nextInt();
                 firstOk = true;
+                if(numberOne == 0) {
+                    System.out.println("Enter a new number that is not zero!");
+                    System.out.println("Enter a new number");
+                    numberOne = myScanner.nextInt();}
             } catch (InputMismatchException e) {
                 System.out.println("Enter whole numbers only please!");
                 System.out.print("Enter a new number: ");
-                myScanner.nextInt();
+                numberOne = myScanner.nextInt();
                 System.out.println(e.getMessage());
                 System.out.println(e);
             }}
@@ -31,13 +35,21 @@ public class TryDivisionCatch {
                     System.out.print("Type in another number: ");
                     numberTwo = myScanner.nextInt();
                     secondOk = true;
+                    if(numberTwo == 0) {
+                    System.out.println("Enter a new number that is not zero!");
+                    System.out.println("Enter a new number");
+                    numberTwo = myScanner.nextInt();}
+
                 } catch (InputMismatchException e) {
+
                     System.out.println("Enter whole numbers only please!");
                     System.out.print("Enter a new number: ");
-                    myScanner.nextInt();
+                    numberTwo = myScanner.nextInt();
                     System.out.println(e.getMessage());
                     System.out.println(e);
-                }}
+                }
+
+                }
 
             try {    double division = numberOne / numberTwo;
                 System.out.println("Result: " + division);

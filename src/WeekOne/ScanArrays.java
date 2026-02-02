@@ -13,70 +13,90 @@ public class ScanArrays {
         boolean third = false;
         boolean fourth = false;
         boolean fifth = false;
+        int inputMismatchCount = 0;
+        int arrayIndexCount = 0;
+
+        while(true) {
+            System.out.println("Type in a whole number or type 'Stop' to close program.");
+            System.out.print("Type 'Ok' if you understand!: ");
+            String stop = myScanner.nextLine();
+            if (stop.equalsIgnoreCase("stop")) {
+                break;
+            }
 
         while (!first) {
             try {
                 System.out.print("Type in a number: ");
-                numbers[0] = myScanner.nextInt();
+                String line = myScanner.nextLine();
+                numbers[0] = Integer.parseInt(line);
                 first = true;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
+                inputMismatchCount++;
                 System.out.println("Enter whole numbers only please!");
-                System.out.print("Enter a new number: ");
-                myScanner.nextInt();
-                System.out.println(e.getMessage());
-                System.out.println(e);
+
             }}
         while (!second) {
             try {
                 System.out.print("Type in a number: ");
-                numbers[1] = myScanner.nextInt();
+                String line = myScanner.nextLine();
+                numbers[1] = Integer.parseInt(line);
                 second = true;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
+                inputMismatchCount++;
                 System.out.println("Enter whole numbers only please!");
-                System.out.print("Enter a new number: ");
-                myScanner.nextInt();
-                System.out.println(e.getMessage());
-                System.out.println(e);
             }}
         while (!third) {
             try {
                 System.out.print("Type in a number: ");
-                numbers[2] = myScanner.nextInt();
+                String line = myScanner.nextLine();
+                numbers[2] = Integer.parseInt(line);
                 third = true;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
+                inputMismatchCount++;
                 System.out.println("Enter whole numbers only please!");
-                System.out.print("Enter a new number: ");
-                myScanner.nextInt();
-                System.out.println(e.getMessage());
-                System.out.println(e);
+
             }}
         while (!fourth) {
             try {
                 System.out.print("Type in a number: ");
-                numbers[3] = myScanner.nextInt();
+                String line = myScanner.nextLine();
+                numbers[3] = Integer.parseInt(line);
                 fourth = true;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
+                inputMismatchCount++;
                 System.out.println("Enter whole numbers only please!");
-                System.out.print("Enter a new number: ");
-                myScanner.nextInt();
-                System.out.println(e.getMessage());
-                System.out.println(e);
+
             }}
         while (!fifth) {
             try {
                 System.out.print("Type in a number: ");
-                numbers[4] = myScanner.nextInt();
+                String line = myScanner.nextLine();
+                numbers[4] = Integer.parseInt(line);
                 fifth = true;
-            } catch (InputMismatchException e) {
+            } catch (NumberFormatException e) {
+                inputMismatchCount++;
                 System.out.println("Enter whole numbers only please!");
-                System.out.print("Enter a new number: ");
-                myScanner.nextInt();
-                System.out.println(e.getMessage());
-                System.out.println(e);
+
             }}
 
+        try {
+            System.out.print("Enter an index between 1-5: ");
+            String line = myScanner.nextLine();
+            int i = Integer.parseInt(line);
+            int index = i -1;
+            System.out.println(numbers[index]);
 
-        System.out.println(Arrays.toString(numbers));
-
+        } catch (NumberFormatException e) {
+            inputMismatchCount++;
+            System.out.println("Enter a whole number for index please!");
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            arrayIndexCount++;
+            System.out.println("You've entered an index that is not available.");
+            }}
+        System.out.println("You typed the wrong kind of number this many times: "+inputMismatchCount);
+        System.out.println("You typed in the wrong index this many times: "+arrayIndexCount);
+        double stupidScale = inputMismatchCount*arrayIndexCount+1000*10/42;
+        System.out.println("You are this stupid on the scale: "+stupidScale);
     }
 }

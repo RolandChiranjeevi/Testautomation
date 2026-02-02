@@ -1,0 +1,7 @@
+Tomt (default / package-private): Gäller bara inom samma package, alltså alla klasser i samma package kan komma åt medlemmen, men inte klasser i andra paket.
+
+private: Gäller bara inne i samma klass, ingen annan klass (inte ens i samma package) kommer åt den direkt.
+
+protected: Gäller inom samma package, plus i subklasser även om de ligger i ett annat package.
+
+public: Gäller “överallt”, dvs kan kommas åt från alla klasser i alla paket (så länge klassen själv är synlig)
